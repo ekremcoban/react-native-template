@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import withCounter from '../hoc/withCounter';
 
@@ -11,16 +11,16 @@ const TextCounter = (props) => {
     //     setcount(count + 1)
     // }
 
-    const { count, increment } = props;
+    const { count, onPress } = props;
     return (
         <View style={styles.container}>
-            <Text>Press the text</Text>
+            <Text>Press the number</Text>
             <View style={styles.title}>
-                <Text onPress={increment}>{count}</Text>
+                <Text onPress={onPress}>{count}</Text>
             </View>
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -28,9 +28,6 @@ const styles = StyleSheet.create({
     },
     title: {
         alignSelf: 'center',
-    },
-    text: {
-        color: 'red',
     },
 });
 

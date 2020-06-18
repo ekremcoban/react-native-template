@@ -1,24 +1,22 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import ButtonCounter from './components/ButtonCounter';
-import TextCounter from './components/TextCounter';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import MainScreen from './src/MainScreen';
+import HomeScreen from './src/HomeScreen';
+import { SCREEN } from './Utilities/Texts';
 
+const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
   return (
-    <View style={style.container}>
-      <ButtonCounter name="Sütaş"/>
-      <TextCounter />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName={SCREEN.Home}>
+        <Stack.Screen name={SCREEN.Home} component={HomeScreen} />
+        <Stack.Screen name={SCREEN.Main} component={MainScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignSelf: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;

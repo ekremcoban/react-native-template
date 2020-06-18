@@ -12,11 +12,11 @@ const withCounter = (WrappedComponent, incrementNumber) => {
             };
         }
 
-        increment = () => {
+        onPress = () => {
             this.setState(prevState => {
                 return {
                     count: prevState.count + incrementNumber,
-                }
+                };
             });
         }
 
@@ -24,12 +24,12 @@ const withCounter = (WrappedComponent, incrementNumber) => {
             const { count } = this.state;
             return <WrappedComponent
                 count={count}
-                increment={this.increment}
+                onPress={this.onPress}
                 {...this.props}
             />;
         }
     }
     return WithCounter;
-}
+};
 
 export default withCounter;
